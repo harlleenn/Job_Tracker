@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import JobDisplay from "./JobDisplay";
 export default function JobFetch() {
   const [jobs, setJobs] = useState([]);
@@ -31,14 +32,16 @@ export default function JobFetch() {
   }, []);
 
   return (
-    <>
     
-      { 
+    <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 m-6">
+       { 
         jobs.map((j) => (
-          <div>
-            <JobDisplay job={j} key={j.job_id}/>
+          <div key={j.job_id} >
+                <JobDisplay job={j} key={j.job_id}/>
           </div>
         ))}
-    </>
+    </div>
+     
+    
   );
 }
